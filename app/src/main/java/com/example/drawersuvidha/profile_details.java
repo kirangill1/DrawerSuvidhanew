@@ -18,7 +18,7 @@ import java.net.URL;
 
 public class profile_details extends AppCompatActivity {
 TextView customer_name,num,address,dist_name,ward,suvidha,adhar,pan,email,bank,acount,ifsc,mode,amount,details;
-String profile_,pan_,adhar_;
+String profile_,pan_,adhar_,r_name,r_num,r_address,r_name_two,r_num_two,r_address_two;
 ImageView profile_img,pan_img,adhar_img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,14 @@ ImageView profile_img,pan_img,adhar_img;
         pan_=getIntent().getStringExtra("pan_img");
         profile_=getIntent().getStringExtra("profile_img");
         adhar_=getIntent().getStringExtra("adhar_img");
+        r_name=getIntent().getStringExtra("reference_name");
+        r_num=getIntent().getStringExtra("reference_number");
+        r_address=getIntent().getStringExtra("reference_address");
+        r_name_two=getIntent().getStringExtra("reference_name_two");
+        r_num_two=getIntent().getStringExtra("reference_number_two");
+        r_address_two=getIntent().getStringExtra("reference_address_two");
+
+
         pan_img.setImageBitmap(getBitmapFromURL(pan_));
         adhar_img.setImageBitmap(getBitmapFromURL(adhar_));
         profile_img.setImageBitmap(getBitmapFromURL(profile_));
@@ -91,11 +99,17 @@ ImageView profile_img,pan_img,adhar_img;
 
     public void one(View view) {
         Intent i = new Intent(getBaseContext(), reference.class);
+        i.putExtra("reference_name", r_name);
+        i.putExtra("reference_number", r_num);
+        i.putExtra("reference_address", r_address);
 startActivity(i);
     }
 
     public void two(View view) {
         Intent i = new Intent(getBaseContext(), reference.class);
+        i.putExtra("reference_name", r_name_two);
+        i.putExtra("reference_number", r_num_two);
+        i.putExtra("reference_address", r_address_two);
         startActivity(i);
     }
 }

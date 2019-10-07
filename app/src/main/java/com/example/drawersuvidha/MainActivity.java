@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void add_booking(View view) {
-        Intent i = new Intent(MainActivity.this  , AddBookingActivity.class);
+    public void add_customer(View view) {
+        Intent i = new Intent(MainActivity.this  , AddCustomerActivity.class);
         startActivity(i);
 
         drawerLayout.closeDrawer(GravityCompat.START);

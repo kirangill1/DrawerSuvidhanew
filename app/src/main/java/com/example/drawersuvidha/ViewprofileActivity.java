@@ -34,7 +34,7 @@ public class ViewprofileActivity extends AppCompatActivity {
 
         recyclerView =findViewById(R.id.view_recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext() ,LinearLayoutManager.VERTICAL, false));
-    get_cutomers();
+        get_cutomers();
     }
 
     private void get_cutomers() {
@@ -107,6 +107,12 @@ public class ViewprofileActivity extends AppCompatActivity {
                             i.putExtra("mode", jsonObject.getString("mode"));
                             i.putExtra("pay_details", jsonObject.getString("pay_details"));
                             i.putExtra("amount", jsonObject.getString("amount"));
+                            i.putExtra("reference_name", jsonObject.getString("reference_name"));
+                            i.putExtra("reference_number", jsonObject.getString("reference_number"));
+                            i.putExtra("reference_address", jsonObject.getString("reference_address"));
+                            i.putExtra("reference_name_two", jsonObject.getString("reference_name_two"));
+                            i.putExtra("reference_number_two", jsonObject.getString("reference_number_two"));
+                            i.putExtra("reference_address_two", jsonObject.getString("reference_address_two"));
 
                             i.putExtra("adhar_img", jsonObject.getString("adhar_img"));
                             i.putExtra("pan_img", jsonObject.getString("pan_img"));
