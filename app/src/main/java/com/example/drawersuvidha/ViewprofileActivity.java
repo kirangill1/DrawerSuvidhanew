@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,11 +41,7 @@ public class ViewprofileActivity extends AppCompatActivity {
 
         JSONObject jsonObject = new JSONObject();
 
-        try {
-            jsonObject.put("module", "get_customer");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("", jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -75,6 +70,7 @@ public class ViewprofileActivity extends AppCompatActivity {
     private class Adapter extends RecyclerView.Adapter<view_holder> {
 
 
+        @NonNull
         @Override
         public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell, parent, false));
@@ -143,7 +139,7 @@ public class ViewprofileActivity extends AppCompatActivity {
         TextView cust_num, cust_name ;
         Button view_details;
 
-        public view_holder(View itemView) {
+        view_holder(View itemView) {
             super(itemView);
 
             cust_num = itemView.findViewById(R.id.customer_num);

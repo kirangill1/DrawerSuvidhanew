@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-
-
-
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".profile_details">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    >
+    tools:ignore="ExtraText">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-android:text="@string/profile_details"
-        android:textSize="30dp"
+        android:text="@string/profile_details"
+        android:textSize="30sp"
         android:layout_margin="30dp"
         />
 
@@ -26,7 +22,7 @@ android:text="@string/profile_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/suvidha_center_number"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
     <TextView
@@ -34,15 +30,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/suvidha_num"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
         />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/distributor_name"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
     <TextView
@@ -50,14 +45,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/dist_name"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Ward_num"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
     <TextView
@@ -65,14 +60,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/ward_num"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_name"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
 
@@ -85,21 +80,23 @@ android:text="@string/profile_details"
             android:layout_height="wrap_content"
             android:text=""
             android:id="@+id/customer_name"
-            android:textSize="20dp"
-            android:layout_marginLeft="30dp"
-            />
+            android:textSize="20sp"
+            android:layout_marginStart="30dp"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/profile_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"/>
+            android:src="@drawable/na"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/todo" />
     </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_num"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
     <TextView
@@ -107,14 +104,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/customer_num"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customer_address"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
     <TextView
@@ -122,14 +119,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/customer_address"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/adhar_num"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
     <RelativeLayout
@@ -141,21 +138,23 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/adhar_num"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
-        />
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/adhar_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/na"
+            android:contentDescription="@string/todo" />
     </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Pan_num"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="20dp"
         />
     <RelativeLayout
@@ -167,22 +166,24 @@ android:text="@string/profile_details"
             android:layout_height="wrap_content"
             android:text=""
             android:id="@+id/pan_num"
-            android:textSize="20dp"
-            android:layout_marginLeft="30dp"
-            />
+            android:textSize="20sp"
+            android:layout_marginStart="30dp"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/pan_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"/>
+            android:src="@drawable/na"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/todo" />
     </RelativeLayout>
         />
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/Email"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:layout_margin="20dp"
     />
     <TextView
@@ -190,33 +191,22 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/email"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Photo"
-        android:textSize="15dp"
-        android:layout_margin="20dp"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/profile_photo"
-        android:layout_marginLeft="30dp"
-        /><TextView
+
+     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/Bank_details"
-    android:textSize="20dp"
+    android:textSize="20sp"
     android:layout_margin="20dp"
     />
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/bank_name"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:layout_margin="20dp"
     />
     <TextView
@@ -224,13 +214,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/bank_name"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
-        /><TextView
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        />
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/bank_account"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:layout_margin="20dp"
     />
     <TextView
@@ -238,13 +229,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/bank_account"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
-        /><TextView
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        />
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/ifsc_code"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:layout_margin="20dp"
     />
     <TextView
@@ -252,13 +244,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/ifsc_code"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
-        /><TextView
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        />
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/Mode_of_payment"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:layout_margin="20dp"
     />
     <TextView
@@ -266,13 +259,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/mode_of_payment"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
-        /><TextView
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        />
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/Ammount"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:layout_margin="20dp"
     />
 
@@ -280,13 +274,14 @@ android:text="@string/profile_details"
         android:id="@+id/Amount"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:text=""
-        android:textSize="20dp" /><TextView
+        android:textSize="20sp" />
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/Payment_details"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:layout_margin="20dp"
     />
     <TextView
@@ -294,13 +289,14 @@ android:text="@string/profile_details"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/payment_details"
-        android:textSize="20dp"
-        android:layout_marginLeft="30dp"
-        /><TextView
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        />
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/reference_one"
-    android:textSize="15dp"
+    android:textSize="15sp"
 
     android:onClick="one"
     android:layout_margin="20dp"
@@ -309,10 +305,41 @@ android:text="@string/profile_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reference_two"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:onClick="two"
         android:layout_margin="20dp"
         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ptp_form_signed"
+            android:textSize="15sp"
+            android:id="@+id/form_id"
+            android:layout_margin="20dp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:id="@+id/signed"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginStart="30dp"
+            android:text=""
+            android:layout_below="@+id/form_id"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/form_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/na"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/todo" />
+    </RelativeLayout>
+
 </LinearLayout>
 
 

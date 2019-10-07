@@ -21,4 +21,9 @@
     <string name="reference_one">Reference 1</string>
     <string name="reference_two">Reference 2</string>
     <string name="view_details">View Details</string>
+    <string name="todo">TODO</string>
+    <string name="ptp_form_signed">PTP Form Signed</string>
+    <string name="reference_details">Reference Details</string>
+    <string name="phone_num">Phone Number</string>
+
 </resources>

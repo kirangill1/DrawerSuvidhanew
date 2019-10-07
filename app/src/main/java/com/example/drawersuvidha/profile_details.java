@@ -2,6 +2,7 @@ package com.example.drawersuvidha;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -56,12 +57,9 @@ ImageView profile_img,pan_img,adhar_img;
         mode.setText(getIntent().getStringExtra("mode"));
         details.setText(getIntent().getStringExtra("pay_details"));
         amount.setText(getIntent().getStringExtra("amount"));
-
-pan_=getIntent().getStringExtra("pan_img");
+        pan_=getIntent().getStringExtra("pan_img");
         profile_=getIntent().getStringExtra("profile_img");
         adhar_=getIntent().getStringExtra("adhar_img");
-
-
         pan_img.setImageBitmap(getBitmapFromURL(pan_));
         adhar_img.setImageBitmap(getBitmapFromURL(adhar_));
         profile_img.setImageBitmap(getBitmapFromURL(profile_));
@@ -70,11 +68,8 @@ pan_=getIntent().getStringExtra("pan_img");
 
     }
 
-    public void two(View view) {
-    }
 
-    public void one(View view) {
-    }
+
 
     public static Bitmap getBitmapFromURL(String img) {
         try {
@@ -89,8 +84,18 @@ pan_=getIntent().getStringExtra("pan_img");
             return myBitmap;
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e("Exception",e.getMessage());
+
             return null;
         }
+    }
+
+    public void one(View view) {
+        Intent i = new Intent(getBaseContext(), reference.class);
+startActivity(i);
+    }
+
+    public void two(View view) {
+        Intent i = new Intent(getBaseContext(), reference.class);
+        startActivity(i);
     }
 }
