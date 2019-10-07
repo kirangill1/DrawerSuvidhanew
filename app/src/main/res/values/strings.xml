@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">DrawerSuvidha</string>
+    <string name="profile_details">Profile Details</string>
+    <string name="suvidha_center_number">Suvidha Center Number</string>
+    <string name="distributor_name">Distributor Name</string>
+    <string name="Ward_num">Ward Number</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_num">Customer Number</string>
+    <string name="customer_address">Customer Address</string>
+    <string name="adhar_num">Adhar Number</string>
+    <string name="Pan_num">PAN Number</string>
+    <string name="Email">Email</string>
+    <string name="Photo">Profile Photo</string>
+    <string name="Bank_details">Bank Details</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="bank_account">Bank Account</string>
+    <string name="ifsc_code">IFSC Code</string>
+    <string name="Mode_of_payment">Mode Of Payment</string>
+    <string name="Ammount">Amount</string>
+    <string name="Payment_details">Payment Details</string>
+    <string name="reference_one">Reference 1</string>
+    <string name="reference_two">Reference 2</string>
+    <string name="view_details">View Details</string>
+    <string name="todo">TODO</string>
+    <string name="ptp_form_signed">PTP Form Signed</string>
+    <string name="reference_details">Reference Details</string>
+    <string name="phone_num">Phone Number</string>
+
 </resources>
