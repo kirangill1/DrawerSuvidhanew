@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -80,21 +82,10 @@ ImageView profile_img,pan_img,adhar_img;
 
 
     public static Bitmap getBitmapFromURL(String img) {
-        try {
-            Log.e("src",img);
-            URL url = new URL(img);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            Log.e("Bitmap","returned");
-            return myBitmap;
-        } catch (IOException e) {
-            e.printStackTrace();
-
-            return null;
-        }
+        byte[] decodedString = Base64.decode(img, Base64.NO_WRAP);
+        InputStream input=new ByteArrayInputStream(decodedString);
+        Bitmap bitmap = BitmapFactory.decodeStream(input);
+        return  bitmap;
     }
 
     public void one(View view) {
