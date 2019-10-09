@@ -82,7 +82,7 @@ ImageView profile_img,pan_img,adhar_img;
 
 
     public static Bitmap getBitmapFromURL(String img) {
-        byte[] decodedString = Base64.decode(img, Base64.NO_WRAP);
+        byte[] decodedString = Base64.decode(img, Base64.DEFAULT);
         InputStream input=new ByteArrayInputStream(decodedString);
         Bitmap bitmap = BitmapFactory.decodeStream(input);
         return  bitmap;
