@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
+    @SuppressLint("StaticFieldLeak")
     public static Activity main_activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void log_out(View view) {
-        SharedPreferences sp = getSharedPreferences("user_info", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.clear();
-        editor.commit();
+        SharedPreferences.Editor sp = getSharedPreferences("user_info", Context.MODE_PRIVATE).edit();
+        sp.clear();
+        sp.apply();
+
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void view_profile(View view) {
-        Intent i = new Intent(MainActivity.this  , ViewprofileActivity.class);
+        Intent i = new Intent(MainActivity.this  , profile_details.class);
         startActivity(i);
 
         drawerLayout.closeDrawer(GravityCompat.START);

@@ -24,10 +24,10 @@ public class StatisticsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
-        textView1 = (TextView) findViewById(R.id.customers);
-        textView2 = (TextView) findViewById(R.id.suvidha_centre);
-        textView3 = (TextView) findViewById(R.id.distributor);
-        textView4 = (TextView) findViewById(R.id.super_distributor);
+        textView1 =  findViewById(R.id.customers);
+        textView2 =  findViewById(R.id.suvidha_centre);
+        textView3 =  findViewById(R.id.distributor);
+        textView4 =  findViewById(R.id.super_distributor);
 
 
         get_values();
@@ -79,6 +79,7 @@ public class StatisticsActivity extends AppCompatActivity {
 
             }
         }, new Response.ErrorListener() {
+            @SuppressWarnings("ThrowablePrintedToSystemOut")
             @Override
             public void onErrorResponse(VolleyError error) {
 

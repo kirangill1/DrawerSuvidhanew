@@ -13,6 +13,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ public class AddCustomerActivity extends AppCompatActivity {
     EditText refer_name1 , refer_contact1 , refer_email1;
     EditText refer_name2 , refer_contact2 ,refer_email2 ;
     RadioButton dd , cheque , yes , no ;
-
+LinearLayout bank_detail;
 
     public static ImageView profile_photo;
     public static ImageView adhaar_card;
@@ -67,7 +68,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         adhaar_card = (ImageView) findViewById(R.id.adhaar);
         pan_card = (ImageView) findViewById(R.id.pan);
         ptp_image = (ImageView) findViewById(R.id.ptp_image);
-
+bank_detail=findViewById(R.id.bank_detail);
 
         bankname_et= (EditText)findViewById(R.id.bank_name);
         bankaccount_et= (EditText)findViewById(R.id.bank_account);
@@ -94,6 +95,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         Intent i = new Intent();
         i.setAction(Intent.ACTION_GET_CONTENT);
         i.setType("image/*");
+        profile_photo.setVisibility(View.VISIBLE);
         //File file = new File(Environment.getExternalStorageDirectory(),
         //      counter+".jpg");
         //Uri photoPath = Uri.fromFile(file);
@@ -102,6 +104,7 @@ public class AddCustomerActivity extends AppCompatActivity {
     }
     public void add_adhaar_card(View view) {
         Intent i = new Intent();
+        adhaar_card.setVisibility(View.VISIBLE);
         i.setAction(Intent.ACTION_GET_CONTENT);
         i.setType("image/*");
         startActivityForResult(i.createChooser(i, "Select Picture"), PICK_IMAGE_REQUEST1);
@@ -110,12 +113,14 @@ public class AddCustomerActivity extends AppCompatActivity {
         Intent i = new Intent();
         i.setAction(Intent.ACTION_GET_CONTENT);
         i.setType("image/*");
+        pan_card.setVisibility(View.VISIBLE);
         startActivityForResult(i.createChooser(i, "Select Picture"), PICK_IMAGE_REQUEST2);
     }
     public void upload_ptp(View view) {
         Intent i = new Intent();
         i.setAction(Intent.ACTION_GET_CONTENT);
         i.setType("image/*");
+        ptp_image.setVisibility(View.VISIBLE);
         //File file = new File(Environment.getExternalStorageDirectory(),
         //      counter+".jpg");
         //Uri photoPath = Uri.fromFile(file);
@@ -144,8 +149,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-        return encodedImage;
+        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
     }
     public String getStringImage3(Bitmap bmp) {
 
@@ -464,6 +468,9 @@ public class AddCustomerActivity extends AppCompatActivity {
 
     }
 
+    public void bank_details(View view) {
+        bank_detail.setVisibility(View.VISIBLE);
+    }
 }
 
 

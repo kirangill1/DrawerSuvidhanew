@@ -5,17 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="2"
+    android:background="@color/purple"
     tools:context=".StatisticsActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="170dp"
-            android:layout_height="130dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="5dp"
+            android:layout_weight="1"
             android:layout_margin="20dp"
             android:background="@drawable/rectangle"
             android:gravity="center">
@@ -44,9 +48,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="170dp"
-            android:layout_height="130dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_weight="1"
             android:padding="5dp"
             android:layout_margin="20dp"
             android:background="@drawable/rectangle"
@@ -60,12 +65,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="suvidha centre"
                 android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_gravity="center"
                 android:textSize="20dp"
-             />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,13 +84,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="2"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="170dp"
-            android:layout_height="130dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="5dp"
+            android:layout_weight="1"
             android:layout_margin="20dp"
             android:background="@drawable/rectangle"
             android:gravity="center">
@@ -115,10 +122,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="170dp"
-            android:layout_height="130dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="5dp"
+            android:layout_weight="1"
             android:layout_margin="20dp"
             android:background="@drawable/rectangle"
             android:gravity="center">

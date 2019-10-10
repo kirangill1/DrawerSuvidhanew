@@ -2,17 +2,19 @@ package com.example.drawersuvidha;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 public class AboutusActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutus);
-        TextView txtDetails = (TextView) findViewById(R.id.txtDetails);
+        TextView txtDetails =  findViewById(R.id.txtDetails);
         txtDetails.setText("About ITI Limited\n" +
                 "\n" +
                 "ITI Limited, India’s first Public Sector Unit established in 1948 is the pioneer in the field of telecommunications. With the productive manufacturing units spread across five locations and a countrywide network of marketing/service outlets, the company offers a complete range of telecom products and total solutions covering the whole spectrum of Switching, Transmission, Access and Subscriber Premises equipment.\n" +

@@ -1,5 +1,6 @@
 package com.example.drawersuvidha;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 
 import com.android.volley.RequestQueue;
@@ -11,9 +12,10 @@ class AppController {
     private Activity c;
 
 
+    @SuppressLint("StaticFieldLeak")
     private static AppController mInstance;
 
-    public AppController(Activity c)
+    AppController(Activity c)
     {
         mInstance = this;
         this.c = c;
@@ -25,7 +27,7 @@ class AppController {
         return mInstance;
     }
 
-    public RequestQueue getRequestQueue() {
+    private RequestQueue getRequestQueue() {
         if (mRequestQueue == null)
         {
             mRequestQueue = Volley.newRequestQueue(c);
@@ -34,7 +36,7 @@ class AppController {
         return mRequestQueue;
     }
 
-    public void addToRequestQueue(JsonObjectRequest jobjreq) {
+    void addToRequestQueue(JsonObjectRequest jobjreq) {
         getRequestQueue().add(jobjreq);
     }}
 

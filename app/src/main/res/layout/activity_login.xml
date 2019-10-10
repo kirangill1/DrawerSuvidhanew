@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".LoginActivity">
     <ScrollView
         android:layout_width="fill_parent"
@@ -29,9 +30,10 @@
                 android:layout_height="wrap_content"
                 android:text="Jammu Suraksha Yojna"
                 android:textSize="28dp"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:layout_marginBottom="20dp"
-                android:textColor="#B3943A"/>
+                android:textColor="#AA8C30"/>
 
 
             <LinearLayout
@@ -46,7 +48,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="USER ID"
-                    android:paddingLeft="5dp" />
+                    android:background="@drawable/rectangle"
+                    android:padding="15dp"
+                    />
 
             </LinearLayout>
 
@@ -62,8 +66,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="PASSWORD"
+                    android:background="@drawable/rectangle"
                     android:inputType="textPassword"
-                    android:paddingLeft="5dp" />
+                    android:padding="15dp" />
             </LinearLayout>
 
             <Button

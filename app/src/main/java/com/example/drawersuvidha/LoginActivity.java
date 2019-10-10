@@ -1,12 +1,14 @@
 package com.example.drawersuvidha;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
 
 import android.widget.Toast;
@@ -20,24 +22,27 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+import java.util.Set;
+
 
 public class LoginActivity extends AppCompatActivity  {
     EditText user_id, password;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        user_id = (EditText) findViewById(R.id.edittext_user);
-        password = (EditText) findViewById(R.id.edittext_pass);
+        user_id = findViewById(R.id.edittext_user);
+        password =  findViewById(R.id.edittext_pass);
     }
 
     public void signin(View view) {
 
-        String user = user_id.getText().toString();
-        String pass = password.getText().toString();
+        final String user = user_id.getText().toString();
+        final String pass = password.getText().toString();
+
 
 
         if (user.equals("")) {
@@ -67,7 +72,7 @@ public class LoginActivity extends AppCompatActivity  {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jobjreq = new JsonObjectRequest("http://reitindia.org/suraksha/api/login_api", job, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jobjreq = new JsonObjectRequest("http://suraksha.reitindia.org/login_user/login", job, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -80,7 +85,17 @@ public class LoginActivity extends AppCompatActivity  {
                     }
                     else if (response.getString("is_logged_in").equals("true")) {
                         Toast.makeText(LoginActivity.this, "done", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor sp = getSharedPreferences("user_info" , MODE_PRIVATE).edit();
 
+                        sp.putString("username" , user);
+                        sp.putString("pass",pass);
+                        sp.putString("is_logged_in","true");
+                        sp.putString("pcr_admin_email",response.getString("pcr_admin_email"));
+                        sp.putString("pcr_admin_name",response.getString("pcr_admin_name"));
+                        sp.putString("pcr_admin_contact",response.getString("pcr_admin_contact"));
+                        sp.putString("pcr_admin_role",response.getString("pcr_admin_role"));
+                        sp.putString("pcr_admin_id",response.getString("id"));
+                        sp.apply();
                         Intent i = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(i);
                         finish();
@@ -98,6 +113,7 @@ public class LoginActivity extends AppCompatActivity  {
             }
         },
                 new Response.ErrorListener() {
+                    @SuppressWarnings("ThrowablePrintedToSystemOut")
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         System.out.println(error);

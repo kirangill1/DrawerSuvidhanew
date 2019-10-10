@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Toast;
 
 public class ContactusActivity extends AppCompatActivity {
-    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,18 +19,18 @@ public class ContactusActivity extends AppCompatActivity {
         findViewById(R.id.callbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                call("8881150160");
+                call();
             }
         });
     }
-    private void call(final String phoneNumber) {
-        startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNumber, null)));
+    private void call() {
+        startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "8881150160", null)));
 
     }
 
 
     public void email(View view) {sendEmail();}
-        @SuppressLint("LongLogTag")
+        @SuppressLint({"LongLogTag", "IntentReset"})
         protected void sendEmail () {
             Log.i("Send email", "");
             String[] TO = {"info@reitindia.org"};

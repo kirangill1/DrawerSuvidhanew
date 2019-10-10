@@ -25,5 +25,15 @@
     <string name="ptp_form_signed">PTP Form Signed</string>
     <string name="reference_details">Reference Details</string>
     <string name="phone_num">Phone Number</string>
+    <string name="textview">TextView</string>
+    <string name="Admin_role">Admin Role</string>
+    <string name="superdistributor_name">Super Distributor Name</string>
+    <string name="Suvidha_center">Suvidha Center</string>
+    <string name="Suvidha_center_details">Suvidha Center Details</string>
+    <string name="arrow">Arrow</string>
+    <string name="communicate">Communicate</string>
+    <string name="welcome">Welcome</string>
+    <string name="admin_name">Admin Name</string>
+    <string name="admin_num">Admin Number</string>
 
 </resources>
