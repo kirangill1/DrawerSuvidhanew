@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DrawerSuvidha</string>
+    <string name="app_name">Suvidha Center</string>
     <string name="profile_details">Profile Details</string>
     <string name="suvidha_center_number">Suvidha Center Number</string>
     <string name="distributor_name">Distributor Name</string>
@@ -35,5 +35,7 @@
     <string name="welcome">Welcome</string>
     <string name="admin_name">Admin Name</string>
     <string name="admin_num">Admin Number</string>
+    <string name="customer_details">Customer Details</string>
+    <string name="forgot_password">Forgot Password?</string>
 
 </resources>
