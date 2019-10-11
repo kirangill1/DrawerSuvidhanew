@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+
     tools:context=".LoginActivity">
     <ScrollView
         android:layout_width="fill_parent"
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:hint="USER ID"
                     android:background="@drawable/rectangle"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     />
 
             </LinearLayout>
@@ -68,15 +68,28 @@
                     android:hint="PASSWORD"
                     android:background="@drawable/rectangle"
                     android:inputType="textPassword"
-                    android:padding="15dp" />
+                    android:padding="10dp" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/forgetpass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:clickable="true"
+                android:gravity="right"
+                android:onClick="forget"
+                android:layout_margin="10dp"
+                android:text="FORGET PASSWORD?"
+                android:textSize="15dp"
+                />
 
             <Button
                 android:id="@+id/login"
                 android:layout_width="140dp"
                 android:layout_height="36dp"
                 android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/rectangle"
                 android:onClick="signin"
                 android:clickable="true"
