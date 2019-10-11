@@ -62,42 +62,42 @@
                 android:orientation="vertical">
 
 
-                <EditText
-                    android:id="@+id/suvidha_et"
+                <TextView
+                    android:id="@+id/suvidha_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Suvidha Center Name"
+                    android:text="Suvidha Center Name"
                     android:imeOptions="actionNext"
                     android:inputType="textPersonName"
                     android:textColor="#000"
                     android:textSize="20dp" />
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:hint="Distributor Name"
+                    android:text="Distributor Name"
                     android:textColor="#000"
-                    android:id="@+id/distributor_et"
+                    android:id="@+id/distributor_tv"
                     android:imeOptions="actionNext"
                     />
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000"
                     android:textSize="20dp"
-                    android:hint="Ward No."
-                    android:id="@+id/ward_et"
+                    android:text="Ward No."
+                    android:id="@+id/ward_tv"
                     android:imeOptions="actionNext"
                     />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:hint="Contact No."
+                    android:text="Contact No."
                     android:textColor="#000"
-                    android:id="@+id/contact_et"
+                    android:id="@+id/contact_tv"
                     android:imeOptions="actionNext"
                     />
 

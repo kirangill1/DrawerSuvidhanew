@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -30,12 +32,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class AddCustomerActivity extends AppCompatActivity {
-    EditText suvidha_et, distributor_et, add_et, ward_et, contact_et, name_et, adhaar_et, pan_et, email_et;
+    TextView suvidha_tv , distributor_tv , ward_tv , contact_tv;
+    EditText  add_et,   name_et, adhaar_et, pan_et, email_et;
     EditText bankname_et , bankaccount_et , ifsccode_et , amount_et , payment_et ;
     EditText refer_name1 , refer_contact1 , refer_email1;
     EditText refer_name2 , refer_contact2 ,refer_email2 ;
     RadioButton dd , cheque , yes , no ;
-LinearLayout bank_detail;
+    LinearLayout bank_detail;
+
 
     public static ImageView profile_photo;
     public static ImageView adhaar_card;
@@ -56,11 +60,11 @@ LinearLayout bank_detail;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcustomer);
         name_et = (EditText) findViewById(R.id.name_et);
-        suvidha_et = (EditText) findViewById(R.id.suvidha_et);
-        distributor_et = (EditText) findViewById(R.id.distributor_et);
+        suvidha_tv = (TextView) findViewById(R.id.suvidha_tv);
+        distributor_tv = (TextView) findViewById(R.id.distributor_tv);
         add_et = (EditText) findViewById(R.id.add_et);
-        ward_et = (EditText) findViewById(R.id.ward_et);
-        contact_et = (EditText) findViewById(R.id.contact_et);
+        ward_tv = (TextView) findViewById(R.id.ward_tv);
+        contact_tv = (TextView) findViewById(R.id.contact_tv);
         adhaar_et = (EditText) findViewById(R.id.adhaar_et);
         pan_et = (EditText) findViewById(R.id.pan_et);
         email_et = (EditText) findViewById(R.id.email_et);
@@ -88,6 +92,13 @@ bank_detail=findViewById(R.id.bank_detail);
         yes= (RadioButton)findViewById(R.id.yes);
         no= (RadioButton)findViewById(R.id.no);
 
+
+        SharedPreferences sp = getSharedPreferences("user_info", MODE_PRIVATE);
+
+       suvidha_tv.setText(sp.getString("suvidha_name",""));
+        distributor_tv.setText(sp.getString("distributor_name",""));
+        ward_tv.setText(sp.getString("ward_no",""));
+        contact_tv.setText(sp.getString("contact_no",""));
 
 
     }
@@ -238,12 +249,12 @@ bank_detail=findViewById(R.id.bank_detail);
     public void submit(View view) {
 
         String name = name_et.getText().toString();
-        String suvidha = suvidha_et.getText().toString();
-        String distributor = distributor_et.getText().toString();
+        String suvidha = suvidha_tv.getText().toString();
+        String distributor = distributor_tv.getText().toString();
         String email = email_et.getText().toString();
         String address = add_et.getText().toString();
-        String ward = ward_et.getText().toString();
-        String contact = contact_et.getText().toString();
+        String ward = ward_tv.getText().toString();
+        String contact = contact_tv.getText().toString();
         String adhaar = adhaar_et.getText().toString();
         String pan = pan_et.getText().toString();
         String bankname = bankname_et.getText().toString();
@@ -400,6 +411,8 @@ bank_detail=findViewById(R.id.bank_detail);
             job.put("refer_name2", refername_2);
             job.put("refer_contact2", refercontact_2);
             job.put("refer_email2", referemail_2);
+            job.put("status", "pending");
+
 
             if(dd_rb){
 
@@ -434,7 +447,7 @@ bank_detail=findViewById(R.id.bank_detail);
                 try {
 
                     if (response.getString("key").equals("0")) {
-                        Toast.makeText(AddCustomerActivity.this, "check your email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddCustomerActivity.this, " not done", Toast.LENGTH_SHORT).show();
                     }
                     else if (response.getString("key").equals("1")) {
                         Toast.makeText(AddCustomerActivity.this, "done", Toast.LENGTH_SHORT).show();
