@@ -12,8 +12,18 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
+    TextView textView1, textView2, textView3, textView4;
     private DrawerLayout drawerLayout;
     @SuppressLint("StaticFieldLeak")
     public static Activity main_activity;
@@ -25,14 +35,78 @@ public class MainActivity extends AppCompatActivity {
 
         main_activity = MainActivity.this;
 
+
+        textView1 = (TextView) findViewById(R.id.customers_of_center);
+        textView2 = (TextView) findViewById(R.id.monthly_customers);
+        textView3 = (TextView) findViewById(R.id.weekly_customers);
+        textView4 = (TextView) findViewById(R.id.daily_customers);
+
+
+        get_values();
+
     }
 
     public void open_drawer(View view) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
+    public void get_values() {
+        JSONObject jobj = new JSONObject();
+
+        SharedPreferences sp = getSharedPreferences("get_customers_count", MODE_PRIVATE);
+
+        String textview1 = sp.getString("customers_of_center", "");
+
+        String textview2 = sp.getString("monthly_customers", "");
+        String textview3 = sp.getString("weekly_customers", "");
+        String textview4 = sp.getString("daily_customers", "");
+
+        try {
+            jobj.put("customers_of_center", textview1);
+            jobj.put("monthly_customers", textview2);
+            jobj.put("weekly_customers", textview3);
+            jobj.put("daily_customers", textview4);
 
 
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/get_customers_count", jobj, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                System.out.println("kkkkkkkkkkkkkkkkkkkkk"+response);
+
+                try {
+
+                    textView1.setText(response.getString("customers_of_center"));
+                    textView2.setText(response.getString("monthly_customers"));
+                    textView3.setText(response.getString("weekly_customers"));
+                    textView4.setText(response.getString("daily_customers"));
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                System.out.println("gggggggggggggggggggggggg"+error);
+
+            }
+        });
+
+
+        jobreq.setRetryPolicy(new DefaultRetryPolicy(20000, 2, 2));
+        AppController app = new AppController(MainActivity.this);
+        app.addToRequestQueue(jobreq);
+    }
 
     public void shareapp(View view) {
 
@@ -104,6 +178,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void add_customer(View view) {
         Intent i = new Intent(MainActivity.this  , AddCustomerActivity.class);
+        startActivity(i);
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+    }
+
+    public void show_customers(View view) {
+        Intent i = new Intent(MainActivity.this  , MainActivity.class);
         startActivity(i);
 
         drawerLayout.closeDrawer(GravityCompat.START);
