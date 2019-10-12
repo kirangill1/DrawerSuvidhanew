@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        JsonObjectRequest jobreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/get_customers_count", jobj, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/get_customers_count_api", jobj, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -81,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
 
-                    textView1.setText(response.getString("customers_of_center"));
-                    textView2.setText(response.getString("monthly_customers"));
+                    textView1.setText(response.getString("key"));
+                    /*textView2.setText(response.getString("monthly_customers"));
                     textView3.setText(response.getString("weekly_customers"));
-                    textView4.setText(response.getString("daily_customers"));
+                    textView4.setText(response.getString("daily_customers"));*/
 
 
                 } catch (JSONException e) {

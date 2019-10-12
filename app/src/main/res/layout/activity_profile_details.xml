@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple"
+    android:background="@drawable/grad"
     tools:context=".profile_details">
 
 
@@ -20,8 +20,9 @@
         android:text="@string/profile_details"
         android:textSize="30sp"
         android:layout_gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:layout_margin="30dp"
+        android:textColor="#fff"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
         />
 
         <LinearLayout
@@ -106,9 +107,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Suvidha_center_details"
+            android:textColor="#fff"
             android:textSize="20dp"
-android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
             android:id="@+id/suvidha_id"
             android:layout_margin="10dp"
             />

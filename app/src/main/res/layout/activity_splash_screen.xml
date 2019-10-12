@@ -4,10 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/grad"
+
     tools:context=".splash_screen">
 <ImageView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-android:src="@drawable/logo"
+    android:src="@drawable/logo"
     android:layout_centerInParent="true"
-    /></RelativeLayout>
+    android:background="@drawable/rectangle"
+    android:layout_margin="10dp"
+    />
+
+
+
+</RelativeLayout>
