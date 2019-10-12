@@ -7,7 +7,7 @@
     <string name="customer_name">Customer Name</string>
     <string name="customer_num">Customer Number</string>
     <string name="customer_address">Customer Address</string>
-    <string name="adhar_num">Adhar Number</string>
+    <string name="adhar_num">Adhaar Number</string>
     <string name="Pan_num">PAN Number</string>
     <string name="Email">Email</string>
     <string name="Photo">Profile Photo</string>

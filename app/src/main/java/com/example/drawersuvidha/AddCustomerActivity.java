@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -30,12 +32,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class AddCustomerActivity extends AppCompatActivity {
-    EditText suvidha_et, distributor_et, add_et, ward_et, contact_et, name_et, adhaar_et, pan_et, email_et;
+    TextView suvidha_tv , distributor_tv , ward_tv , contact_tv;
+    EditText  add_et,   name_et, adhaar_et, pan_et, email_et ,app_et;
     EditText bankname_et , bankaccount_et , ifsccode_et , amount_et , payment_et ;
     EditText refer_name1 , refer_contact1 , refer_email1;
     EditText refer_name2 , refer_contact2 ,refer_email2 ;
-    RadioButton dd , cheque , yes , no ;
-LinearLayout bank_detail;
+    RadioButton dd , cheque , yes , no ,yess, noo ;
+    LinearLayout bank_detail;
+
 
     public static ImageView profile_photo;
     public static ImageView adhaar_card;
@@ -56,11 +60,12 @@ LinearLayout bank_detail;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcustomer);
         name_et = (EditText) findViewById(R.id.name_et);
-        suvidha_et = (EditText) findViewById(R.id.suvidha_et);
-        distributor_et = (EditText) findViewById(R.id.distributor_et);
+        suvidha_tv = (TextView) findViewById(R.id.suvidha_tv);
+        distributor_tv = (TextView) findViewById(R.id.distributor_tv);
         add_et = (EditText) findViewById(R.id.add_et);
-        ward_et = (EditText) findViewById(R.id.ward_et);
-        contact_et = (EditText) findViewById(R.id.contact_et);
+        app_et =(EditText)findViewById(R.id.app_et) ;
+        ward_tv = (TextView) findViewById(R.id.ward_tv);
+        contact_tv = (TextView) findViewById(R.id.contact_tv);
         adhaar_et = (EditText) findViewById(R.id.adhaar_et);
         pan_et = (EditText) findViewById(R.id.pan_et);
         email_et = (EditText) findViewById(R.id.email_et);
@@ -68,7 +73,7 @@ LinearLayout bank_detail;
         adhaar_card = (ImageView) findViewById(R.id.adhaar);
         pan_card = (ImageView) findViewById(R.id.pan);
         ptp_image = (ImageView) findViewById(R.id.ptp_image);
-bank_detail=findViewById(R.id.bank_detail);
+        bank_detail=findViewById(R.id.bank_detail);
 
         bankname_et= (EditText)findViewById(R.id.bank_name);
         bankaccount_et= (EditText)findViewById(R.id.bank_account);
@@ -86,8 +91,17 @@ bank_detail=findViewById(R.id.bank_detail);
         cheque= (RadioButton)findViewById(R.id.cheque);
         dd= (RadioButton)findViewById(R.id.dd);
         yes= (RadioButton)findViewById(R.id.yes);
+        yess= (RadioButton)findViewById(R.id.yess);
         no= (RadioButton)findViewById(R.id.no);
+        noo= (RadioButton)findViewById(R.id.noo);
 
+
+        SharedPreferences sp = getSharedPreferences("user_info", MODE_PRIVATE);
+
+       suvidha_tv.setText(sp.getString("suvidha_name",""));
+        distributor_tv.setText(sp.getString("distributor_name",""));
+        ward_tv.setText(sp.getString("ward_no",""));
+        contact_tv.setText(sp.getString("contact_no",""));
 
 
     }
@@ -238,12 +252,13 @@ bank_detail=findViewById(R.id.bank_detail);
     public void submit(View view) {
 
         String name = name_et.getText().toString();
-        String suvidha = suvidha_et.getText().toString();
-        String distributor = distributor_et.getText().toString();
+        String suvidha = suvidha_tv.getText().toString();
+        String distributor = distributor_tv.getText().toString();
         String email = email_et.getText().toString();
         String address = add_et.getText().toString();
-        String ward = ward_et.getText().toString();
-        String contact = contact_et.getText().toString();
+        String application = app_et.getText().toString();
+        String ward = ward_tv.getText().toString();
+        String contact = contact_tv.getText().toString();
         String adhaar = adhaar_et.getText().toString();
         String pan = pan_et.getText().toString();
         String bankname = bankname_et.getText().toString();
@@ -262,6 +277,10 @@ bank_detail=findViewById(R.id.bank_detail);
         Boolean cheque_rb = cheque.isChecked();
         Boolean yes_rb = yes.isChecked();
         Boolean no_rb = no.isChecked();
+
+        Boolean yess_rb = yess.isChecked();
+        Boolean noo_rb = noo.isChecked();
+
 
 
 
@@ -283,6 +302,10 @@ bank_detail=findViewById(R.id.bank_detail);
         }
         if (contact.length() < 10) {
             Toast.makeText(AddCustomerActivity.this, "re-enter the contact no. ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (application.length() > 0) {
+            Toast.makeText(AddCustomerActivity.this, "enter the application no. ", Toast.LENGTH_SHORT).show();
             return;
         }
         if (address.equals("")) {
@@ -337,6 +360,10 @@ bank_detail=findViewById(R.id.bank_detail);
             Toast.makeText(AddCustomerActivity.this, "select the option", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (!yess_rb&&!noo_rb){
+            Toast.makeText(AddCustomerActivity.this, "select the option ecs", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (refername_1.equals("")) {
             Toast.makeText(AddCustomerActivity.this, "enter the name for first referencr", Toast.LENGTH_SHORT).show();
             return;
@@ -376,50 +403,65 @@ bank_detail=findViewById(R.id.bank_detail);
             job.put("customers_name", name);
             job.put("customers_contact", contact);
             job.put("customers_email", email);
-            job.put("suvidha_center_name", suvidha);
-            job.put("distributor_name", distributor);
-            job.put("ward_no", ward);
+            job.put("customers_suvidha_center_id", suvidha);
+            job.put("customers_distributor_id", distributor);
+            job.put("customers_ward_no", ward);
             job.put("customers_address", address);
-            job.put("adhaar_no", adhaar);
-            job.put("pan_no", pan);
+            job.put("customers_aadhar", adhaar);
+            job.put("customers_pan_no", pan);
+            job.put("customers_application_no", application);
+
 
             job.put("customer_id", getIntent().getStringExtra("customer_id"));
-            job.put("profile_photo", profile_photo_string);
-            job.put("adhaar_card", adhaar_card_string);
-            job.put("pan_card", pan_card_string);
-            job.put("ptp_image", ptp_image_string);
+            job.put("customers_profile_photo", profile_photo_string);
+            job.put("customers_adhar_upload", adhaar_card_string);
+            job.put("customers_pan_upload", pan_card_string);
+            job.put("customers_ptp_upload", ptp_image_string);
 
-            job.put("bank_name", bankname);
-            job.put("bank_account", bankaccount);
-            job.put("ifsc_code", ifsccode);
-            job.put("amount", amount);
-            job.put("payment_details", payment);
-            job.put("refer_name1", refername_1);
-            job.put("refer_contact1", refercontact_1);
-            job.put("refer_email1", referemail_1);
-            job.put("refer_name2", refername_2);
-            job.put("refer_contact2", refercontact_2);
-            job.put("refer_email2", referemail_2);
+            job.put("customers_bank_name", bankname);
+            job.put("customers_bank_account_no", bankaccount);
+            job.put("customers_ifsc_code", ifsccode);
+            job.put("customers_bank_charges", amount);
+            job.put("customers_payment_details", payment);
+            job.put("customers_refrence1_name", refername_1);
+            job.put("customers_refrence1_phone", refercontact_1);
+            job.put("customers_refrence1_email", referemail_1);
+            job.put("customers_refrence2_name", refername_2);
+            job.put("customers_refrence_phone", refercontact_2);
+            job.put("customers_refrence_email", referemail_2);
+            job.put("customers_status", "pending");
+
 
             if(dd_rb){
 
-                job.put("mode_of_payment","dd");
+                job.put("customers_mode_of_payment","dd");
             }
 
             if(cheque_rb)
             {
-                job.put("mode_of_payment","cheque");
+                job.put("customers_mode_of_payment","cheque");
             }
 
             if(yes_rb)
             {
-                job.put("ptp_form_signed" , "yes");
+                job.put("customers_ptp_form_signed" , "yes");
             }
 
             if(no_rb)
             {
-                job.put("ptp_form_signed" , "no");
+                job.put("customers_ptp_form_signed" , "no");
             }
+
+            if(yess_rb)
+            {
+                job.put("customers_ecs_signed" , "yess");
+            }
+
+            if(noo_rb)
+            {
+                job.put("customers_ecs_signed" , "noo");
+            }
+
 
 
         } catch (JSONException e) {
@@ -434,7 +476,7 @@ bank_detail=findViewById(R.id.bank_detail);
                 try {
 
                     if (response.getString("key").equals("0")) {
-                        Toast.makeText(AddCustomerActivity.this, "check your email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddCustomerActivity.this, " not done", Toast.LENGTH_SHORT).show();
                     }
                     else if (response.getString("key").equals("1")) {
                         Toast.makeText(AddCustomerActivity.this, "done", Toast.LENGTH_SHORT).show();
