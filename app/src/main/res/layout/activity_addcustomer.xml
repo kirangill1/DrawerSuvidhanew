@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@color/purple"
+            android:background="@drawable/grad"
             >
 
             <RelativeLayout
@@ -30,7 +30,7 @@
                     android:layout_centerHorizontal="true"
                     android:textStyle="bold"
                     android:id="@+id/tv"
-                    android:textColor="#B3943A"
+                    android:textColor="#fff"
                     />
 
                 <View
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="Personal Information"
                 android:textSize="20dp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="#fff"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
                 android:id="@+id/tv1"
@@ -187,7 +187,7 @@
                     android:id="@+id/choose_pan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#B3943A"
+                    android:backgroundTint="#B3943A"
                     android:onClick="add_pan_card"
                     android:text="add pan card"
                     android:textColor="#fff" />
@@ -215,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bank Details"
                 android:textSize="20dp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="#fff"
                 android:onClick="bank_details"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
@@ -385,7 +385,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="PTP form signed? "
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#fff"
                     android:textSize="20dp"
                     />
                 <RadioGroup
@@ -402,17 +402,17 @@
                         android:textSize="20dp"
                         android:layout_weight="1"
                         android:id="@+id/yes"
-                        android:buttonTint="#000"
+                        android:buttonTint="#fff"
                         android:imeOptions="actionNext"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#fff"
                         />
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="No"
-                        android:buttonTint="#000"
+                        android:buttonTint="#fff"
                         android:id="@+id/no"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#fff"
                         android:textSize="20dp"
                         android:imeOptions="actionNext"
                         android:layout_weight="2"
