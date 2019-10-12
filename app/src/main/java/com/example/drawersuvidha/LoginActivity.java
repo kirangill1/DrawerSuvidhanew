@@ -81,7 +81,10 @@ public class LoginActivity extends AppCompatActivity  {
                 try {
 
                     if (response.getString("is_logged_in").equals("false")) {
+
+                      
                         Toast.makeText(LoginActivity.this, "check your user id and passwrod", Toast.LENGTH_SHORT).show();
+
                     }
                     else if (response.getString("is_logged_in").equals("true")) {
                         Toast.makeText(LoginActivity.this, "done", Toast.LENGTH_SHORT).show();
@@ -128,6 +131,9 @@ public class LoginActivity extends AppCompatActivity  {
 
     }
 
-    public void forgot(View view) {
+    public void forget(View view) {
+        Intent i = new Intent(LoginActivity.this, ForgetpassActivity.class);
+        startActivity(i);
+
     }
 }
