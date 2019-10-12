@@ -131,6 +131,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    android:hint="Application Number "
+                    android:textColor="#000"
+                    android:id="@+id/app_et"
+                    android:imeOptions="actionNext"
+                    />
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
                     android:hint="@string/customer_name"
                     android:textColor="#000"
                     android:id="@+id/name_et"
@@ -208,6 +219,7 @@
                     android:id="@+id/email_et"
                     android:imeOptions="actionNext"
                     />
+
             </LinearLayout>
 
             <TextView
@@ -228,7 +240,7 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:id="@+id/bank_detail"
-                android:visibility="gone"
+
                 android:layout_margin="10dp"
                 android:orientation="vertical">
                 <EditText
@@ -297,6 +309,47 @@
 
                         />
                 </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ECS signed? "
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiogroup_ecs"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textSize="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/yess"
+                        android:buttonTint="#000"
+                        android:imeOptions="actionNext"
+                        android:textColor="#000"
+                        />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:buttonTint="#000"
+                        android:id="@+id/noo"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:imeOptions="actionNext"
+                        android:layout_weight="2"
+
+                        />
+                </RadioGroup>
+
+
 
 
                 <EditText
