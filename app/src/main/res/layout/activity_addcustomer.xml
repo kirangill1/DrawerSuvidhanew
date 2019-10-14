@@ -62,44 +62,108 @@
                 android:orientation="vertical">
 
 
-                <TextView
-                    android:id="@+id/suvidha_tv"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Suvidha Center Name"
-                    android:imeOptions="actionNext"
-                    android:inputType="textPersonName"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:orientation="horizontal"
+                    >
 
-                <TextView
+
+                    <TextView
+                        android:id="@+id/suvidha_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Suvidha Center Name:"
+                        android:textColor="#000"
+                        android:textSize="20dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/suvidha_center_name"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionNext"
+
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:text="Distributor Name"
+                    android:text="Distributor Name:"
                     android:textColor="#000"
                     android:id="@+id/distributor_tv"
-                    android:imeOptions="actionNext"
-                    />
 
-                <TextView
+                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/distributor_name"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionNext"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000"
                     android:textSize="20dp"
-                    android:text="Ward No."
+                    android:text="Ward No.:"
                     android:id="@+id/ward_tv"
-                    android:imeOptions="actionNext"
+
                     />
-                <TextView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ward_no"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:imeOptions="actionNext"
+                    />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:text="Contact No."
+                    android:text="Contact No.:"
                     android:textColor="#000"
                     android:id="@+id/contact_tv"
-                    android:imeOptions="actionNext"
                     />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/contact_no"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:imeOptions="actionNext"
+
+                    />
+                </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -109,7 +173,7 @@
                         android:id="@+id/choose_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#B3943A"
+                        android:backgroundTint="#AE8830"
                         android:onClick="add_image"
                         android:text="add photo"
                         android:textColor="#fff" />
@@ -174,7 +238,7 @@
                     android:id="@+id/choose_adhaar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#B3943A"
+                    android:backgroundTint="#AE8830"
                     android:onClick="add_adhaar_card"
                     android:text="add adhaar card"
                     android:textColor="#fff" />
@@ -198,7 +262,7 @@
                     android:id="@+id/choose_pan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#B3943A"
+                    android:backgroundTint="#AE8830"
                     android:onClick="add_pan_card"
                     android:text="add pan card"
                     android:textColor="#fff" />
@@ -223,16 +287,15 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bank Details"
-                android:textSize="20dp"
-                android:textColor="#fff"
-                android:onClick="bank_details"
-                android:textStyle="bold"
                 android:gravity="center_horizontal"
-                android:id="@+id/tv2"
-                />
+                android:onClick="bank_details"
+                android:text="Bank Details"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -240,7 +303,7 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:id="@+id/bank_detail"
-
+android:visibility="gone"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
                 <EditText
@@ -478,7 +541,7 @@
                     android:id="@+id/upload_ptp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#B3943A"
+                    android:backgroundTint="#AE8830"
                     android:text="Upload PTP FORM"
                     android:onClick="upload_ptp"
                     android:textColor="#fff"/>
@@ -497,7 +560,7 @@
                     android:id="@+id/submit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#B3943A"
+                    android:backgroundTint="#AE8830"
                     android:onClick="submit"
                     android:text="submit"
                     android:textColor="#fff" />

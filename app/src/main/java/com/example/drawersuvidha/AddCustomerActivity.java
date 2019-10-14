@@ -284,7 +284,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
 
 
-        if (suvidha.equals("")) {
+       /* if (suvidha.equals("")) {
             Toast.makeText(AddCustomerActivity.this, "enter the suvidha center name", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -295,16 +295,16 @@ public class AddCustomerActivity extends AppCompatActivity {
         if (ward.equals("")) {
             Toast.makeText(AddCustomerActivity.this, "enter the ward no.", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
         if (name.equals("")) {
             Toast.makeText(AddCustomerActivity.this, "enter the name", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (contact.length() < 10) {
+       /* if (contact.length() < 10) {
             Toast.makeText(AddCustomerActivity.this, "re-enter the contact no. ", Toast.LENGTH_SHORT).show();
             return;
-        }
-        if (application.length() > 0) {
+        }*/
+        if (application.equals("")) {
             Toast.makeText(AddCustomerActivity.this, "enter the application no. ", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -312,11 +312,11 @@ public class AddCustomerActivity extends AppCompatActivity {
             Toast.makeText(AddCustomerActivity.this, "enter the address", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (adhaar.length() < 8) {
+        if (adhaar.length() < 8 || adhaar.length()>8) {
             Toast.makeText(AddCustomerActivity.this, "please check your adhaar card no.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (pan.length() < 8) {
+        if (pan.length() < 8 || pan.length()>8) {
             Toast.makeText(AddCustomerActivity.this, "please check your pan card no.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -341,7 +341,7 @@ public class AddCustomerActivity extends AppCompatActivity {
             Toast.makeText(AddCustomerActivity.this, " ifsc code should contain 11 digits", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (amount.length() >0) {
+        if (amount.equals("")) {
             Toast.makeText(AddCustomerActivity.this, " amount  should  be greater than 0", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -390,7 +390,7 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
-        if(!refername_1.equals("")&& !referemail_1.equals("")&&!refercontact_1.equals("")){
+        if(refername_1.equals("")&& referemail_1.equals("")&&refercontact_1.equals("")){
 
             Toast.makeText(AddCustomerActivity.this, "Please enter atleast one reference", Toast.LENGTH_SHORT).show();
             return;
@@ -467,7 +467,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jobjreq = new JsonObjectRequest("http://testing.reitindia.org/welcome/insert_customers", job, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jobjreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/insert_customers_data", job, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

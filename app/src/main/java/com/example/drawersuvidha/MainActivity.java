@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         get_values();
+        get_values_month();
+        get_values_week();
+        get_values_today();
 
     }
 
@@ -57,15 +60,15 @@ public class MainActivity extends AppCompatActivity {
 
         String textview1 = sp.getString("customers_of_center", "");
 
-        String textview2 = sp.getString("monthly_customers", "");
-        String textview3 = sp.getString("weekly_customers", "");
-        String textview4 = sp.getString("daily_customers", "");
+//        String textview2 = sp.getString("monthly_customers", "");
+//        String textview3 = sp.getString("weekly_customers", "");
+//        String textview4 = sp.getString("daily_customers", "");
 
         try {
             jobj.put("customers_of_center", textview1);
-            jobj.put("monthly_customers", textview2);
-            jobj.put("weekly_customers", textview3);
-            jobj.put("daily_customers", textview4);
+//            jobj.put("monthly_customers", textview2);
+//            jobj.put("weekly_customers", textview3);
+//            jobj.put("daily_customers", textview4);
 
 
 
@@ -107,6 +110,181 @@ public class MainActivity extends AppCompatActivity {
         AppController app = new AppController(MainActivity.this);
         app.addToRequestQueue(jobreq);
     }
+
+    public void get_values_month() {
+        JSONObject jobj = new JSONObject();
+
+        SharedPreferences sp = getSharedPreferences("get_customers_count", MODE_PRIVATE);
+
+        //  String textview1 = sp.getString("customers_of_center", "");
+
+        String textview2 = sp.getString("monthly_customers", "");
+//        String textview3 = sp.getString("weekly_customers", "");
+//        String textview4 = sp.getString("daily_customers", "");
+
+        try {
+            //    jobj.put("customers_of_center", textview1);
+            jobj.put("monthly_customers", textview2);
+//            jobj.put("weekly_customers", textview3);
+//            jobj.put("daily_customers", textview4);
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/get_customers_count_api_monthly", jobj, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                System.out.println("kkkkkkkkkkkkkkkkkkkkk"+response);
+
+                try {
+
+                    textView2.setText(response.getString("key"));
+                    /*textView2.setText(response.getString("monthly_customers"));
+                    textView3.setText(response.getString("weekly_customers"));
+                    textView4.setText(response.getString("daily_customers"));*/
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                System.out.println("gggggggggggggggggggggggg"+error);
+
+            }
+        });
+
+
+        jobreq.setRetryPolicy(new DefaultRetryPolicy(20000, 2, 2));
+        AppController app = new AppController(MainActivity.this);
+        app.addToRequestQueue(jobreq);
+    }
+
+    public void get_values_week() {
+        JSONObject jobj = new JSONObject();
+
+        SharedPreferences sp = getSharedPreferences("get_customers_count", MODE_PRIVATE);
+
+//        String textview1 = sp.getString("customers_of_center", "");
+//        String textview2 = sp.getString("monthly_customers", "");
+        String textview3 = sp.getString("weekly_customers", "");
+//        String textview4 = sp.getString("daily_customers", "");
+
+        try {
+//            jobj.put("customers_of_center", textview1);
+//            jobj.put("monthly_customers", textview2);
+            jobj.put("weekly_customers", textview3);
+//            jobj.put("daily_customers", textview4);
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/get_customers_count_api_weekly", jobj, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                System.out.println("kkkkkkkkkkkkkkkkkkkkk"+response);
+
+                try {
+
+                    textView3.setText(response.getString("key"));
+                    /*textView2.setText(response.getString("monthly_customers"));
+                    textView3.setText(response.getString("weekly_customers"));
+                    textView4.setText(response.getString("daily_customers"));*/
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                System.out.println("gggggggggggggggggggggggg"+error);
+
+            }
+        });
+
+
+        jobreq.setRetryPolicy(new DefaultRetryPolicy(20000, 2, 2));
+        AppController app = new AppController(MainActivity.this);
+        app.addToRequestQueue(jobreq);
+    }
+
+    public void get_values_today() {
+
+        JSONObject jobj = new JSONObject();
+
+        SharedPreferences sp = getSharedPreferences("get_customers_count", MODE_PRIVATE);
+
+        // String textview1 = sp.getString("customers_of_center", "");
+
+//        String textview2 = sp.getString("monthly_customers", "");
+//        String textview3 = sp.getString("weekly_customers", "");
+        String textview4 = sp.getString("daily_customers", "");
+
+        try {
+            //       jobj.put("customers_of_center", textview1);
+//            jobj.put("monthly_customers", textview2);
+//            jobj.put("weekly_customers", textview3);
+            jobj.put("daily_customers", textview4);
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/get_customers_count_api_today", jobj, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                System.out.println("kkkkkkkkkkkkkkkkkkkkk"+response);
+
+                try {
+
+                    textView4.setText(response.getString("key"));
+                    /*textView2.setText(response.getString("monthly_customers"));
+                    textView3.setText(response.getString("weekly_customers"));
+                    textView4.setText(response.getString("daily_customers"));*/
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                System.out.println("gggggggggggggggggggggggg"+error);
+
+            }
+        });
+
+
+        jobreq.setRetryPolicy(new DefaultRetryPolicy(20000, 2, 2));
+        AppController app = new AppController(MainActivity.this);
+        app.addToRequestQueue(jobreq);
+    }
+
 
     public void shareapp(View view) {
 
@@ -168,13 +346,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void statistics(View view) {
-        Intent i = new Intent(MainActivity.this  , StatisticsActivity.class);
-        startActivity(i);
 
-        drawerLayout.closeDrawer(GravityCompat.START);
-
-    }
 
     public void add_customer(View view) {
         Intent i = new Intent(MainActivity.this  , AddCustomerActivity.class);
@@ -190,5 +362,12 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.closeDrawer(GravityCompat.START);
 
+    }
+
+    public void call_logs(View view) {
+        Intent i = new Intent(MainActivity.this  , Call_logs.class);
+        startActivity(i);
+
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 }
