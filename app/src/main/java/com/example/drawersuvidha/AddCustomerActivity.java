@@ -60,12 +60,12 @@ public class AddCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcustomer);
         name_et = (EditText) findViewById(R.id.name_et);
-        suvidha_tv = (TextView) findViewById(R.id.suvidha_tv);
-        distributor_tv = (TextView) findViewById(R.id.distributor_tv);
+        suvidha_tv = (TextView) findViewById(R.id.suvidha_center_name);
+        distributor_tv = (TextView) findViewById(R.id.distributor_name);
         add_et = (EditText) findViewById(R.id.add_et);
         app_et =(EditText)findViewById(R.id.app_et) ;
-        ward_tv = (TextView) findViewById(R.id.ward_tv);
-        contact_tv = (TextView) findViewById(R.id.contact_tv);
+        ward_tv = (TextView) findViewById(R.id.ward_no);
+        contact_tv = (TextView) findViewById(R.id.contact_no);
         adhaar_et = (EditText) findViewById(R.id.adhaar_et);
         pan_et = (EditText) findViewById(R.id.pan_et);
         email_et = (EditText) findViewById(R.id.email_et);
