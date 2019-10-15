@@ -49,8 +49,8 @@ public class LoginActivity extends AppCompatActivity  {
             Toast.makeText(LoginActivity.this, "please enter your user id", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (user.length() < 5) {
-            Toast.makeText(LoginActivity.this, "enter user id atleast 5 alphabets", Toast.LENGTH_SHORT).show();
+        if (user.length() < 4) {
+            Toast.makeText(LoginActivity.this, "enter user id atleast 4 alphabets", Toast.LENGTH_SHORT).show();
             return;
         }
 

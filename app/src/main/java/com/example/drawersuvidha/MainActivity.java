@@ -363,11 +363,4 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(GravityCompat.START);
 
     }
-
-    public void call_logs(View view) {
-        Intent i = new Intent(MainActivity.this  , Call_logs.class);
-        startActivity(i);
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-    }
 }
