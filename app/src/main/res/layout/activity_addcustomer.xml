@@ -42,6 +42,117 @@
             </RelativeLayout>
 
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rectangle"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+
+                <TextView
+                    android:id="@+id/suvidha_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Suvidha Center Name:"
+                    android:textColor="#000"
+                    android:textSize="20dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/suvidha_center_name"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionNext"
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Distributor Name:"
+                    android:textColor="#000"
+                    android:id="@+id/distributor_tv"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/distributor_name"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionNext"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:text="Ward No.:"
+                    android:id="@+id/ward_tv"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ward_no"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:imeOptions="actionNext"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Contact No.:"
+                    android:textColor="#000"
+                    android:id="@+id/contact_tv"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/contact_no"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:imeOptions="actionNext"
+
+                    />
+            </LinearLayout>
+        </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,8 +163,7 @@
                 android:gravity="center_horizontal"
                 android:id="@+id/tv1"
                 />
-
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
@@ -62,112 +172,11 @@
                 android:orientation="vertical">
 
 
-                <LinearLayout
+
+            <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     >
-
-
-                    <TextView
-                        android:id="@+id/suvidha_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Suvidha Center Name:"
-                        android:textColor="#000"
-                        android:textSize="20dp" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/suvidha_center_name"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:inputType="textPersonName"
-                        android:imeOptions="actionNext"
-
-                        />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="Distributor Name:"
-                    android:textColor="#000"
-                    android:id="@+id/distributor_tv"
-
-                    />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/distributor_name"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:inputType="textPersonName"
-                        android:imeOptions="actionNext"
-
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:textSize="20dp"
-                    android:text="Ward No.:"
-                    android:id="@+id/ward_tv"
-
-                    />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ward_no"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:imeOptions="actionNext"
-                    />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="Contact No.:"
-                    android:textColor="#000"
-                    android:id="@+id/contact_tv"
-                    />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/contact_no"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:imeOptions="actionNext"
-
-                    />
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/choose_img"
@@ -196,6 +205,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:hint="Application Number "
+                    android:inputType="number"
                     android:textColor="#000"
                     android:id="@+id/app_et"
                     android:imeOptions="actionNext"
@@ -207,6 +217,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:hint="@string/customer_name"
+                    inp
                     android:textColor="#000"
                     android:id="@+id/name_et"
                     android:imeOptions="actionNext"
@@ -303,7 +314,7 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:id="@+id/bank_detail"
-android:visibility="gone"
+                android:visibility="gone"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
                 <EditText
