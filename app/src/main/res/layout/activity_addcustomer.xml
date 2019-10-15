@@ -194,7 +194,6 @@
                         android:layout_height="150dp"
                         android:visibility="gone"
                         android:layout_alignParentEnd="true"
-
                         />
 
                 </RelativeLayout>
@@ -217,7 +216,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:hint="@string/customer_name"
-                    inp
+                    android:inputType="textPersonName"
                     android:textColor="#000"
                     android:id="@+id/name_et"
                     android:imeOptions="actionNext"
@@ -229,6 +228,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="@string/customer_address"
+                    android:inputType="textPostalAddress"
                     android:textColor="#000"
                     android:id="@+id/add_et"
                     android:imeOptions="actionNext"
@@ -239,6 +239,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="@string/adhar_num"
+                    android:inputType="number"
                     android:textColor="#000"
                     android:id="@+id/adhaar_et"
                     android:imeOptions="actionNext"
@@ -266,6 +267,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Pan_num"
+                    android:inputType="number"
                     android:imeOptions="actionNext"
                     android:textColor="#000"
                     android:textSize="20dp" />
@@ -290,6 +292,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:textColor="#000"
                     android:id="@+id/email_et"
                     android:imeOptions="actionNext"
@@ -310,7 +313,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-            android:background="@drawable/rectangle"
+                android:background="@drawable/rectangle"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:id="@+id/bank_detail"
@@ -321,6 +324,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Bank Name"
+                    android:inputType="text"
                     android:id="@+id/bank_name"
                     android:textSize="20dp"
                     android:textColor="#000"
@@ -331,6 +335,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Bank Account"
                     android:textSize="20dp"
+                    android:inputType="number"
                     android:textColor="#000"
                     android:imeOptions="actionNext"
                     android:id="@+id/bank_account"/>
@@ -339,6 +344,7 @@
                     android:layout_height="wrap_content"
                     android:hint="IFSC Code"
                     android:textSize="20dp"
+                    android:inputType="number"
                     android:textColor="#000"
                     android:imeOptions="actionNext"
                     android:id="@+id/ifsc_code"/>
@@ -431,6 +437,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Amount"
                     android:textSize="20dp"
+                    android:inputType="number"
                     android:textColor="#000"
                     android:imeOptions="actionNext"
                     android:id="@+id/amount"/>
@@ -455,6 +462,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Name"
+                    android:inputType="text"
                     android:imeOptions="actionNext"
                     android:textColor="#000"
                     android:textSize="20dp" />
@@ -463,6 +471,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Contact"
+                    android:inputType="number"
                     android:imeOptions="actionNext"
                     android:textColor="#000"
                     android:textSize="20dp" />
@@ -471,6 +480,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:imeOptions="actionNext"
                     android:textColor="#000"
                     android:textSize="20dp" />
@@ -481,6 +491,7 @@
                     android:layout_height="wrap_content"
                     android:text="Reference 2"
                     android:textColor="#000"
+                    android:inputType="text"
                     android:textSize="20dp"/>
                 <EditText
                     android:id="@+id/refer_name2"
@@ -488,6 +499,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Name"
                     android:imeOptions="actionNext"
+                    android:inputType="text"
                     android:textColor="#000"
                     android:textSize="20dp" />
                 <EditText
@@ -496,6 +508,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Contact"
                     android:imeOptions="actionNext"
+                    android:inputType="number"
                     android:textColor="#000"
                     android:textSize="20dp" />
                 <EditText
@@ -503,6 +516,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:imeOptions="actionNext"
                     android:textColor="#000"
                     android:textSize="20dp" />
