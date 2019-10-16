@@ -270,11 +270,35 @@ public class AddCustomerActivity extends AppCompatActivity {
         String address = add_et.getText().toString();
         String application = app_et.getText().toString();
         String ward = ward_tv.getText().toString();
+
+        String pan= pan_et.getText().toString().trim();
+
+        Pattern pattern = Pattern.compile("[A-Z]{5}[0-9]{4}[A-Z]{1}");
+
+        Matcher matcher = pattern .matcher(pan);
+
+        if (!matcher .matches())
+        {
+            Toast.makeText(getApplicationContext(), pan+" is not valid pan no.",
+                    Toast.LENGTH_LONG).show();
+        }
+
+
+
         String contact = contact_tv.getText().toString();
         String adhaar = adhaar_et.getText().toString();
         String bankname = bankname_et.getText().toString();
         String bankaccount = bankaccount_et.getText().toString();
         String ifsccode= ifsccode_et.getText().toString();
+        String patternn = "[A-Z]{5}[0-9]{4}[A-Z]{1}";
+
+        //!ifsccode.matches(patternn) ||
+
+        if (!ifsccode.matches(patternn) ||ifsccode.length()< 11 || ifsccode.length() > 11) {
+            Toast.makeText(AddCustomerActivity.this, " ifsc code should contain 11 digits", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String amount = amount_et.getText().toString();
         String payment = payment_et.getText().toString();
         String refername_1 = refer_name1.getText().toString();
@@ -295,18 +319,6 @@ public class AddCustomerActivity extends AppCompatActivity {
         Boolean yess_rb = yess.isChecked();
         Boolean noo_rb = noo.isChecked();
 
-
-        String pan= pan_et.getText().toString().trim();
-
-            Pattern pattern = Pattern.compile("[A-Z]{5}[0-9]{4}[A-Z]{1}");
-
-            Matcher matcher = pattern .matcher(pan);
-
-        if (!matcher .matches())
-            {
-                Toast.makeText(getApplicationContext(), pan+" is not valid pan no.",
-                        Toast.LENGTH_LONG).show();
-            }
 
 
        //String patternn = "[A-Z]{5}[0-9]{4}[A-Z]{1}";
@@ -359,10 +371,10 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
-        if (pan.length() < 10 || pan.length()>10) {
+       /* if (pan.length() < 10 || pan.length()>10) {
             Toast.makeText(AddCustomerActivity.this, "please check your pan card no.", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(AddCustomerActivity.this, "enter valid email", Toast.LENGTH_SHORT).show();
             return;
@@ -379,12 +391,7 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
-        //!ifsccode.matches(patternn) ||
 
-        if (ifsccode.length()< 11 || ifsccode.length() > 11) {
-            Toast.makeText(AddCustomerActivity.this, " ifsc code should contain 11 digits", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
        /* if (ifsccode.length()< 11 || ifsccode.length() >11) {
             Toast.makeText(AddCustomerActivity.this, " ifsc code should contain 11 digits", Toast.LENGTH_SHORT).show();
@@ -407,10 +414,6 @@ public class AddCustomerActivity extends AppCompatActivity {
             Toast.makeText(AddCustomerActivity.this, "enter the payment details", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
-
-
 
         if (refername_1.length() < 3) {
             Toast.makeText(AddCustomerActivity.this, "name for first reference should contain atleast 3 alphabets", Toast.LENGTH_SHORT).show();
