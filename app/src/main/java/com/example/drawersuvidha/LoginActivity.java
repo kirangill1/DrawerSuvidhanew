@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity  {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jobjreq = new JsonObjectRequest("http://suraksha.reitindia.org/login_user/login", job, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jobjreq = new JsonObjectRequest("http://suraksha.reitindia.org/api/login_api", job, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity  {
 
                     if (response.getString("is_logged_in").equals("false")) {
 
-                      
+
                         Toast.makeText(LoginActivity.this, "check your user id and passwrod", Toast.LENGTH_SHORT).show();
 
                     }
@@ -93,11 +93,13 @@ public class LoginActivity extends AppCompatActivity  {
                         sp.putString("username" , user);
                         sp.putString("pass",pass);
                         sp.putString("is_logged_in","true");
-                        sp.putString("pcr_admin_email",response.getString("pcr_admin_email"));
-                        sp.putString("pcr_admin_name",response.getString("pcr_admin_name"));
-                        sp.putString("pcr_admin_contact",response.getString("pcr_admin_contact"));
-                        sp.putString("pcr_admin_role",response.getString("pcr_admin_role"));
-                        sp.putString("pcr_admin_id",response.getString("id"));
+                        sp.putString("suvidha_center_id",response.getString("suvidha_center_id"));
+                        sp.putString("suvidha_center_ward_no",response.getString("suvidha_center_ward_no"));
+                        sp.putString("suvidha_center_contact_number",response.getString("suvidha_center_contact_number"));
+                        sp.putString("suvidha_center_name_person",response.getString("suvidha_center_name_person"));
+                        sp.putString("suvidha_center_email",response.getString("suvidha_center_email"));
+                        sp.putString("distributor_id",response.getString("distributor_id"));
+                        sp.putString("distributor_name_person",response.getString("distributor_name_person"));
                         sp.apply();
                         Intent i = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(i);

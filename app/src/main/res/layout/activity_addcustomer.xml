@@ -61,7 +61,7 @@
                     android:id="@+id/suvidha_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Suvidha Center Name:"
+                    android:text="Suvidha Center: "
                     android:textColor="#000"
                     android:textSize="20dp" />
 
@@ -88,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:text="Distributor Name:"
+                    android:text="Distributor: "
                     android:textColor="#000"
                     android:id="@+id/distributor_tv"
 
@@ -267,7 +267,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Pan_num"
-                    android:inputType="number"
                     android:imeOptions="actionNext"
                     android:textColor="#000"
                     android:textSize="20dp" />
@@ -344,7 +343,7 @@
                     android:layout_height="wrap_content"
                     android:hint="IFSC Code"
                     android:textSize="20dp"
-                    android:inputType="number"
+
                     android:textColor="#000"
                     android:imeOptions="actionNext"
                     android:id="@+id/ifsc_code"/>

@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -30,6 +31,18 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+/*
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+*/
+
+import static android.view.View.Z;
 
 public class AddCustomerActivity extends AppCompatActivity {
     TextView suvidha_tv , distributor_tv , ward_tv , contact_tv;
@@ -39,6 +52,7 @@ public class AddCustomerActivity extends AppCompatActivity {
     EditText refer_name2 , refer_contact2 ,refer_email2 ;
     RadioButton dd , cheque , yes , no ,yess, noo ;
     LinearLayout bank_detail;
+    //String loc = "";
 
 
     public static ImageView profile_photo;
@@ -98,12 +112,10 @@ public class AddCustomerActivity extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences("user_info", MODE_PRIVATE);
 
-       suvidha_tv.setText(sp.getString("suvidha_name",""));
-        distributor_tv.setText(sp.getString("distributor_name",""));
-        ward_tv.setText(sp.getString("ward_no",""));
-        contact_tv.setText(sp.getString("contact_no",""));
-
-
+        suvidha_tv.setText(sp.getString("suvidha_center_name_person",""));
+        distributor_tv.setText(sp.getString("distributor_name_person",""));
+        ward_tv.setText(sp.getString("suvidha_center_ward_no",""));
+        contact_tv.setText(sp.getString("suvidha_center_contact_number",""));
     }
     public void add_image(View view) {
         Intent i = new Intent();
@@ -260,7 +272,6 @@ public class AddCustomerActivity extends AppCompatActivity {
         String ward = ward_tv.getText().toString();
         String contact = contact_tv.getText().toString();
         String adhaar = adhaar_et.getText().toString();
-        String pan = pan_et.getText().toString();
         String bankname = bankname_et.getText().toString();
         String bankaccount = bankaccount_et.getText().toString();
         String ifsccode= ifsccode_et.getText().toString();
@@ -273,6 +284,9 @@ public class AddCustomerActivity extends AppCompatActivity {
         String refercontact_2 = refer_contact2.getText().toString();
         String referemail_2 = refer_email2.getText().toString();
 
+       // String address = loc;
+
+
         Boolean dd_rb = dd.isChecked();
         Boolean cheque_rb = cheque.isChecked();
         Boolean yes_rb = yes.isChecked();
@@ -282,6 +296,33 @@ public class AddCustomerActivity extends AppCompatActivity {
         Boolean noo_rb = noo.isChecked();
 
 
+        String pan= pan_et.getText().toString().trim();
+
+            Pattern pattern = Pattern.compile("[A-Z]{5}[0-9]{4}[A-Z]{1}");
+
+            Matcher matcher = pattern .matcher(pan);
+
+        if (!matcher .matches())
+            {
+                Toast.makeText(getApplicationContext(), pan+" is not valid pan no.",
+                        Toast.LENGTH_LONG).show();
+            }
+
+
+       //String patternn = "[A-Z]{5}[0-9]{4}[A-Z]{1}";
+
+
+        /*ifsccode= ifsccode_et.getText().toString().trim();
+
+        Pattern patternn = Pattern.compile("[A-Z]{5}[0-9]{4}[A-Z]{1}");
+
+        Matcher matcherr = patternn .matcher(ifsccode);
+
+        if (!matcherr .matches())
+        {
+            Toast.makeText(getApplicationContext(), ifsccode+" is not valid ifsc code",
+                    Toast.LENGTH_LONG).show();
+        }*/
 
 
        /* if (suvidha.equals("")) {
@@ -296,27 +337,29 @@ public class AddCustomerActivity extends AppCompatActivity {
             Toast.makeText(AddCustomerActivity.this, "enter the ward no.", Toast.LENGTH_SHORT).show();
             return;
         }*/
-        if (name.equals("")) {
-            Toast.makeText(AddCustomerActivity.this, "enter the name", Toast.LENGTH_SHORT).show();
+        if (application.equals("")) {
+            Toast.makeText(AddCustomerActivity.this, "enter the application no. ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (name.length() < 3) {
+            Toast.makeText(AddCustomerActivity.this, "customer name should contain atleast 3 alphabets", Toast.LENGTH_SHORT).show();
             return;
         }
        /* if (contact.length() < 10) {
             Toast.makeText(AddCustomerActivity.this, "re-enter the contact no. ", Toast.LENGTH_SHORT).show();
             return;
         }*/
-        if (application.equals("")) {
-            Toast.makeText(AddCustomerActivity.this, "enter the application no. ", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
         if (address.equals("")) {
             Toast.makeText(AddCustomerActivity.this, "enter the address", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (adhaar.length() < 8 || adhaar.length()>8) {
+        if (adhaar.length() < 12|| adhaar.length()>12) {
             Toast.makeText(AddCustomerActivity.this, "please check your adhaar card no.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (pan.length() < 8 || pan.length()>8) {
+
+        if (pan.length() < 10 || pan.length()>10) {
             Toast.makeText(AddCustomerActivity.this, "please check your pan card no.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -336,9 +379,23 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
+        //!ifsccode.matches(patternn) ||
 
-        if (ifsccode.length()< 11 || ifsccode.length() >11) {
+        if (ifsccode.length()< 11 || ifsccode.length() > 11) {
             Toast.makeText(AddCustomerActivity.this, " ifsc code should contain 11 digits", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+       /* if (ifsccode.length()< 11 || ifsccode.length() >11) {
+            Toast.makeText(AddCustomerActivity.this, " ifsc code should contain 11 digits", Toast.LENGTH_SHORT).show();
+            return;
+        }*/
+        if (!dd_rb&&!cheque_rb){
+            Toast.makeText(AddCustomerActivity.this, "select mode of payment", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!yess_rb&&!noo_rb){
+            Toast.makeText(AddCustomerActivity.this, "ECS signed or not?", Toast.LENGTH_SHORT).show();
             return;
         }
         if (amount.equals("")) {
@@ -351,21 +408,12 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
-        if (!dd_rb&&!cheque_rb){
-            Toast.makeText(AddCustomerActivity.this, "select the option", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
-        if (!yes_rb&&!no_rb){
-            Toast.makeText(AddCustomerActivity.this, "select the option", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (!yess_rb&&!noo_rb){
-            Toast.makeText(AddCustomerActivity.this, "select the option ecs", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (refername_1.equals("")) {
-            Toast.makeText(AddCustomerActivity.this, "enter the name for first referencr", Toast.LENGTH_SHORT).show();
+
+
+
+        if (refername_1.length() < 3) {
+            Toast.makeText(AddCustomerActivity.this, "name for first reference should contain atleast 3 alphabets", Toast.LENGTH_SHORT).show();
             return;
         }
         if (refercontact_1.length() < 10) {
@@ -377,8 +425,8 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
-        if (refername_2.equals("")) {
-            Toast.makeText(AddCustomerActivity.this, "enter the name for second reference", Toast.LENGTH_SHORT).show();
+        if (refername_2.length() < 3) {
+            Toast.makeText(AddCustomerActivity.this, "name for second reference should contain atleast 3 alphabets", Toast.LENGTH_SHORT).show();
             return;
         }
         if (refercontact_2.length() < 10) {
@@ -395,6 +443,10 @@ public class AddCustomerActivity extends AppCompatActivity {
             Toast.makeText(AddCustomerActivity.this, "Please enter atleast one reference", Toast.LENGTH_SHORT).show();
             return;
 
+        }
+        if (!yes_rb&&!no_rb){
+            Toast.makeText(AddCustomerActivity.this, "PTP form signed or not", Toast.LENGTH_SHORT).show();
+            return;
         }
 
 

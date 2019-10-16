@@ -336,7 +336,6 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-
     public void view_profile(View view) {
         Intent i = new Intent(MainActivity.this  , profile_details.class);
         startActivity(i);
@@ -344,9 +343,6 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(GravityCompat.START);
 
     }
-
-
-
 
     public void add_customer(View view) {
         Intent i = new Intent(MainActivity.this  , AddCustomerActivity.class);
