@@ -277,27 +277,18 @@ public class AddCustomerActivity extends AppCompatActivity {
 
         Matcher matcher = pattern .matcher(pan);
 
-        if (!matcher .matches())
-        {
-            Toast.makeText(getApplicationContext(), pan+" is not valid pan no.",
-                    Toast.LENGTH_LONG).show();
-        }
-
 
 
         String contact = contact_tv.getText().toString();
         String adhaar = adhaar_et.getText().toString();
         String bankname = bankname_et.getText().toString();
         String bankaccount = bankaccount_et.getText().toString();
+
+
         String ifsccode= ifsccode_et.getText().toString();
-        String patternn = "[A-Z]{5}[0-9]{4}[A-Z]{1}";
+        String patternn = "[A-Z]{4}[0][A-Z0-9]{6}";
 
-        //!ifsccode.matches(patternn) ||
 
-        if (!ifsccode.matches(patternn) ||ifsccode.length()< 11 || ifsccode.length() > 11) {
-            Toast.makeText(AddCustomerActivity.this, " ifsc code should contain 11 digits", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         String amount = amount_et.getText().toString();
         String payment = payment_et.getText().toString();
@@ -371,6 +362,13 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
+
+        if (!matcher .matches())
+        {
+            Toast.makeText(getApplicationContext(), pan+" is not valid pan no.",
+                    Toast.LENGTH_LONG).show();
+        }
+
        /* if (pan.length() < 10 || pan.length()>10) {
             Toast.makeText(AddCustomerActivity.this, "please check your pan card no.", Toast.LENGTH_SHORT).show();
             return;
@@ -388,6 +386,10 @@ public class AddCustomerActivity extends AppCompatActivity {
 
         if (bankaccount.length() <15 || bankaccount.length()>15  ) {
             Toast.makeText(AddCustomerActivity.this, " account no should  contain  15 digits", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!ifsccode.matches(patternn) ||ifsccode.length()< 11 || ifsccode.length() > 11) {
+            Toast.makeText(AddCustomerActivity.this, " ifsc code is not valid", Toast.LENGTH_SHORT).show();
             return;
         }
 
