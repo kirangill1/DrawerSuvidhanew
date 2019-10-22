@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/customer_name"
+                android:text="User"
                 android:textSize="15sp"
                 android:layout_margin="20dp"
                 />
@@ -44,16 +44,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:id="@+id/customer_name"
+
                 android:textSize="20sp"
-                android:layout_marginStart="30dp"
-                tools:ignore="RelativeOverlap" />
+                android:layout_marginStart="30dp" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Email"
+                android:text="Suvidha Center Name"
                 android:textSize="15sp"
                 android:layout_margin="20dp"
                 />
@@ -61,30 +60,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:id="@+id/email"
-                android:textSize="20sp"
-                android:layout_marginStart="30dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/customer_num"
-                android:textSize="15sp"
-                android:layout_margin="20dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/customer_num"
+
                 android:textSize="20sp"
                 android:layout_marginStart="30dp"
                 />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/customer_address"
+                android:text="Ward Number"
                 android:textSize="15sp"
                 android:layout_margin="20dp"
                 />
@@ -92,13 +75,89 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:layout_marginBottom="20dp"
-                android:id="@+id/customer_address"
+
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Number"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Customer Name"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distributor ID"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Distributor Name"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+
                 android:textSize="20sp"
                 android:layout_marginStart="30dp"
                 />
         </LinearLayout>
-        <RelativeLayout
+        <!--<RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="suvidha_details">
@@ -251,7 +310,7 @@
                     android:layout_alignParentEnd="true"
                     android:contentDescription="@string/todo" />
             </RelativeLayout>
-            />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -381,7 +440,7 @@
                     android:layout_alignParentEnd="true"
                     android:contentDescription="@string/todo" />
             </RelativeLayout>
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
 
 

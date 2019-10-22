@@ -73,13 +73,14 @@ public class AddCustomerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcustomer);
-        name_et = (EditText) findViewById(R.id.name_et);
+
         suvidha_tv = (TextView) findViewById(R.id.suvidha_center_name);
         distributor_tv = (TextView) findViewById(R.id.distributor_name);
-        add_et = (EditText) findViewById(R.id.add_et);
-        app_et =(EditText)findViewById(R.id.app_et) ;
         ward_tv = (TextView) findViewById(R.id.ward_no);
         contact_tv = (TextView) findViewById(R.id.contact_no);
+        name_et = (EditText) findViewById(R.id.name_et);
+        add_et = (EditText) findViewById(R.id.add_et);
+        app_et =(EditText)findViewById(R.id.app_et) ;
         adhaar_et = (EditText) findViewById(R.id.adhaar_et);
         pan_et = (EditText) findViewById(R.id.pan_et);
         email_et = (EditText) findViewById(R.id.email_et);
@@ -117,6 +118,16 @@ public class AddCustomerActivity extends AppCompatActivity {
         ward_tv.setText(sp.getString("suvidha_center_ward_no",""));
         contact_tv.setText(sp.getString("suvidha_center_contact_number",""));
     }
+    // function to convert bitmap to string
+    public String getStringImage(Bitmap bmp) {
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+
     public void add_image(View view) {
         Intent i = new Intent();
         i.setAction(Intent.ACTION_GET_CONTENT);
@@ -153,38 +164,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         // i.putExtra(MediaStore.EXTRA_OUTPUT, photoPath);
         startActivityForResult(i.createChooser(i, "Select Picture"), PICK_IMAGE_REQUEST3);
     }
-    // function to convert bitmap to string
-    public String getStringImage(Bitmap bmp) {
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-        return encodedImage;
-    }
-    public String getStringImage1(Bitmap bmp) {
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-        return encodedImage;
-    }
-    public String getStringImage2(Bitmap bmp) {
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
-    }
-    public String getStringImage3(Bitmap bmp) {
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-        return encodedImage;
-    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -239,6 +219,8 @@ public class AddCustomerActivity extends AppCompatActivity {
             }
         }
     }
+
+
     // function to scale down image
     public Bitmap decodeUri(Context c, Uri uri, final int requiredSize)
             throws FileNotFoundException {
@@ -384,10 +366,10 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
-        if (bankaccount.length() <15 || bankaccount.length()>15  ) {
-            Toast.makeText(AddCustomerActivity.this, " account no should  contain  15 digits", Toast.LENGTH_SHORT).show();
-            return;
-        }
+       // if (bankaccount.length() <19 || bankaccount.length()>8  ) {
+           /// Toast.makeText(AddCustomerActivity.this, " account no. should be between 8-19 digits", Toast.LENGTH_SHORT).show();
+           // return;
+       // }
         if (!ifsccode.matches(patternn) ||ifsccode.length()< 11 || ifsccode.length() > 11) {
             Toast.makeText(AddCustomerActivity.this, " ifsc code is not valid", Toast.LENGTH_SHORT).show();
             return;
@@ -524,7 +506,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jobjreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/insert_customers_data", job, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jobjreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/insert_customers_data_api", job, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

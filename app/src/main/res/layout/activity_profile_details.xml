@@ -32,74 +32,133 @@
             android:background="@drawable/rectangle"
             android:layout_margin="10dp"
             >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/admin_name"
-            android:textSize="15sp"
-            android:layout_margin="20dp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User ID"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:id="@+id/customer_name"
+                android:id="@+id/user_id"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Suvidha Center Name"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/suvidha_center_name"
                 android:textSize="20sp"
                 android:layout_marginStart="30dp"
-                tools:ignore="RelativeOverlap" />
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ward Number"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/ward_no"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Number"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/contact_no"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Email"
-            android:textSize="15sp"
-            android:layout_margin="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/email"
-            android:textSize="20sp"
-            android:layout_marginStart="30dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/admin_num"
-            android:textSize="15sp"
-            android:layout_margin="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/customer_num"
-            android:textSize="20sp"
-            android:layout_marginStart="30dp"
-            />
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+               android:id="@+id/suvidha_center_email"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Admin_role"
-            android:textSize="15sp"
-            android:layout_margin="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginBottom="20dp"
-            android:id="@+id/customer_role"
-            android:textSize="20sp"
-            android:layout_marginStart="30dp"
-            />
+         <!--   <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Customer Name"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/customer_name"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"-->
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distributor ID"
+                android:textSize="15sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/distributor_id"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Distributor Name"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/distributor_name"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                />
         </LinearLayout>
-        <RelativeLayout
+ <!--       <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="suvidha_details">
@@ -348,7 +407,7 @@ android:layout_marginTop="10dp"
             android:layout_alignParentEnd="true"
             android:contentDescription="@string/todo" />
     </RelativeLayout>
-</LinearLayout>
+</LinearLayout>-->
 </LinearLayout>
 
 
