@@ -31,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        drawerLayout = findViewById(R.id.drawer_activity);
+        drawerLayout = findViewById(R.id.drawer_activityy);
 
         main_activity = MainActivity.this;
 
 
-        textView1 = (TextView) findViewById(R.id.customers_of_center);
-        textView2 = (TextView) findViewById(R.id.monthly_customers);
-        textView3 = (TextView) findViewById(R.id.weekly_customers);
-        textView4 = (TextView) findViewById(R.id.daily_customers);
+        textView1 = (TextView) findViewById(R.id.customers_of_centerr);
+        textView2 = (TextView) findViewById(R.id.monthly_customerss);
+        textView3 = (TextView) findViewById(R.id.weekly_customerss);
+        textView4 = (TextView) findViewById(R.id.daily_customerss);
 
 
         get_values();

@@ -11,27 +11,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ChangepasswordActivity" />
         <activity android:name=".ForgetpassActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".view_cust_detail" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".reference" />
-        <activity android:name=".profile_details" />
-        <activity android:name=".AboutusActivity" />
-        <activity android:name=".ContactusActivity" />
-        <activity android:name=".ViewprofileActivity" />
-        <activity android:name=".AddCustomerActivity" />
-        <activity android:name=".splash_screen">
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".profile_details" />
+        <activity android:name=".AboutusActivity" />
+        <activity android:name=".ContactusActivity" />
+        <activity android:name=".splash_screen" />
+        <activity android:name=".AddCustomerActivity">
+
+        </activity>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
 
 
     <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

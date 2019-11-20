@@ -42,6 +42,7 @@ public class ForgetpassActivity extends AppCompatActivity {
             Toast.makeText(ForgetpassActivity.this, "Enter Your Email", Toast.LENGTH_SHORT).show();
             return;
         }
+
         JSONObject job = new JSONObject();
         try {
 
@@ -51,6 +52,7 @@ public class ForgetpassActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         JsonObjectRequest jobjreq = new JsonObjectRequest("http://suraksha.reitindia.org/dashboard/forgot_password", job, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
